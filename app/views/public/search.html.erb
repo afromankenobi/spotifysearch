@@ -1,2 +1,17 @@
 <h4>Esta es nuestra busqueda:</h4>
-<%= @query %>
+
+<table>
+	<tr>
+		<th>Foto</th>
+		<th>Nombre</th>
+		<th>popularidad</th>
+	</tr>
+	<% @result["artists"]["items"].each do |item| %>
+	<%# binding.pry %>
+		<tr>
+			<td><%= image_tag(item["images"].last["url"]) unless item["images"].blank? %></td>
+			<td><%= item["name"]%></td>
+			<td><%= item["popularity"]%></td>
+		</tr>
+	<% end %>
+</table>

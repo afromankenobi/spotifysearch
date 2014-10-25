@@ -1,0 +1,7 @@
+<h1>Busca un artista en Spotify</h1>
+
+<%= form_tag(public_search_path, method: 'get') do %>
+	<%= label_tag :search %><br />
+	<%= text_field_tag :search %>
+	<%= submit_tag "Buscar", :disable_with => "Please wait..." %>
+<% end %>

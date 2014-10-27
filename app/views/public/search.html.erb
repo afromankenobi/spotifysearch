@@ -6,12 +6,24 @@
 		<th>Nombre</th>
 		<th>popularidad</th>
 	</tr>
-	<% @result["artists"]["items"].each do |item| %>
-	<%# binding.pry %>
-		<tr>
-			<td><%= image_tag(item["images"].last["url"]) unless item["images"].blank? %></td>
-			<td><%= item["name"]%></td>
-			<td><%= item["popularity"]%></td>
-		</tr>
-	<% end %>
+
+
+
+		<% @result["#{params[:type]}s"]["items"].each do |item| %>
+		
+		<%# binding.pry %>
+			<tr>
+				<td><%= image_tag(item["images"].last["url"]) unless item["images"].blank? %></td>
+				<td><%= item["name"]%></td>
+				<td><%= item["popularity"]%></td>
+				<%#= params.inspect %>
+			</tr>
+
+
+		<% end %>	
+
+
 </table>
+<br/>
+
+<%= link_to 'Volver', public_index_path %>

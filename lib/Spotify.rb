@@ -3,10 +3,27 @@ class Spotify
 
 	base_uri 'https://api.spotify.com/v1'
 
-	def search(q, type="artist")
-		return false if q.blank?
-		result = self.class.get("/search?q=#{q}&type=#{type}")
+	def search(search, type="artist")
+	#def search(q, type)
+		return false if search.blank?
+		result = self.class.get("/search?q=#{search}&type=#{type}")
 		result = result.to_json
 		result = JSON.parse result
+		
 	end
-end
+
+	def searchalbum(search, type="album")
+		return false if search.blank?
+		result = self.class.get("/search?q=#{search}&type=#{type}")
+		result = result.to_json
+		result = JSON.parse result
+		
+	end
+
+	def search_tracks(search, tyoe="track")
+		return aflse if search.blank?
+		result = self.class.get("/search?q=#{search}&type=#{type}")
+		result = result.to_json
+		result = JSON.parse result
+		
+end	

@@ -1,29 +1,30 @@
-<h4>Esta es nuestra busqueda:</h4>
+<h4 class"subheader">Esta es resultado de nuestra busqueda:</h4>
 
 <table>
 	<tr>
-		<th>Foto</th>
-		<th>Nombre</th>
-		<th>popularidad</th>
+	<div class="row collapse">
+		<div class="small-4 small-pull-8 columns"><th>Foto</th></div>
+		<div class="small-8 small-push-4 columns"><th>Nombre</th></div>
+		<div class="small-4 small-push-8 columns"><th>Popularidad</th></div>
+		</div>
 	</tr>
 
-
-
-		<% @result["#{params[:type]}s"]["items"].each do |item| %>
+	<% @result["#{params[:type]}s"]["items"].each do |item| %>
 		
 		<%# binding.pry %>
-			<tr>
-				<td><%= image_tag(item["images"].last["url"]) unless item["images"].blank? %></td>
-				<td><%= item["name"]%></td>
-				<td><%= item["popularity"]%></td>
+	<tr>
+		<div class="row collapse">
+			<div class="medium-4 columns"><td>
+			<%= image_tag(item["images"].last["url"]) unless item["images"].blank? %>
+			</td></div>
+			<div class="medium-4 columns"><td><%= item["name"]%></td></div>
+			<div class="medium-4 columns"><td><%= item["popularity"]%></td></div>
 				<%#= params.inspect %>
-			</tr>
+		</div>
+	</tr>
 
-
-		<% end %>	
-
+	<% end %>	
 
 </table>
 <br/>
-
 <%= link_to 'Volver', public_index_path %>

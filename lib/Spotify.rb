@@ -25,5 +25,5 @@ class Spotify
 		result = self.class.get("/search?q=#{search}&type=#{type}")
 		result = result.to_json
 		result = JSON.parse result
-		
+	end	
 end	

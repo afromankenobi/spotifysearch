@@ -1,23 +1,35 @@
-<h1>Busca un artista en Spotify</h1>
+<h1>Busca en Spotify</h1>
 
 
 <%= form_tag(public_search_path, method: 'get') do %>
-	<%= label_tag :search %><br />
-	<%= text_field_tag :search %>
-	<br/>
-	<%= radio_button_tag(:type, "artist") %>
-	<%= label_tag("Por artista") %>
+
+<div class="row">
+	<div class="small-3 columns"></div>
+	<%= text_field_tag :search, nil, placeholder: 'Ingresa artista, Album o Canción' %>
 	
-	<br/>
-	<%= radio_button_tag(:type, "album") %>
-	<%= label_tag("Por album") %>
-	<br />
+	<div class="row">
+		<div class="small-3 columns">
+		<%= radio_button_tag(:type, "artist") %>
+		<%= label_tag("Por artista") %>
+		</div>
+	</div>
 
-	<%= radio_button_tag(:type, "track") %>
-	<%= label_tag("Por tracks") %>
+	<div class="row collapse">
+		<div class="small-3 columns">
+			<%= radio_button_tag(:type, "album")  %>
+			<%= label_tag("Por album") %>
+		</div>
+	</div>
 
+	<div class="row collapse">
+		<div class="small-3 columns">
+			<%= radio_button_tag(:type, "track") %>
+			<%= label_tag("Por tracks") %>
+		</div>
+	</div>
 	<br />
-	<%= submit_tag "Buscar", :disable_with => "Please wait..." %>
+	<div class="small-3 small-offset-3 columns"><%= submit_tag "Buscar", :disable_with => "Please wait...", class:"button </div>radius" %></div>
+	
 <% end %>
 
 

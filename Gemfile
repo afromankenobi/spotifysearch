@@ -38,3 +38,4 @@ gem 'spring',        group: :development
 # Use debugger
 gem "pry-rails"
 gem 'httparty'
+gem 'foundation-rails'

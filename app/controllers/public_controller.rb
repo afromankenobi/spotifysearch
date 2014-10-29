@@ -3,9 +3,14 @@ class PublicController < ApplicationController
   def index
   end
 
+  def remove_spaces
+
+  end
+
   def search
   	#query = params[:search]
   	search = params[:search]
+    search = search.gsub(" ", "_")
   	search_type = params[:type]
   	spotify = Spotify.new
   	@result = spotify.search(search, search_type)
